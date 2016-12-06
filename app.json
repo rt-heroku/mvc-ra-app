@@ -1,7 +1,10 @@
 {
-  "name": "Ionic Mobile app",
-  "description": "A simple Ionic app for Heroku",
-  "repository": "https://github.com/driftyco/ionic-heroku-button",
-  "logo": "http://ionicframework.com/img/ionic-logo-blog.png",
-  "keywords": ["ionic", "static"]
+  "name": "Heroku Resort Activities",
+  "description": "Client application for Resort Activities",
+  "website": "https://github.com/rt-heroku/mvc-ra-app",
+  "repository": "https://github.com/rt-heroku/mvc-ra-app",
+  "logo": "http://res.cloudinary.com/hzxejch6p/image/upload/v1459783069/connect-logo-e18aa0d71ae466919801dd2c312239c3bb23849d9fc445c2227fe92ae40c861a_xkri0p.png",
+  "scripts": {},
+  "addons": ["heroku-postgresql"]
 }
+

@@ -1,31 +1,26 @@
-# Workflow
-##To run your app in the browser (great for initial development):
-`ionic serve`
+HC - Services
+=============
 
-##To run on iOS:
-`ionic run ios`
+Services builder for Heroku connect.
 
-##To run on Android:
-`ionic run android`
 
-##Review ionic CHANGELOG when updating ionic-angular version
-https://github.com/driftyco/ionic/blob/master/CHANGELOG.md
+Setup
+=====
 
-# Configs
-## Cordova (uses config.xml)
-### [Mass saving platforms on an existing project](http://cordova.apache.org/docs/en/latest/platform_plugin_versioning_ref/index.html#mass-saving-platforms-on-an-existing-project)
-`cordova platform save`
-Use it when you have a pre-existing project and you want to save all the currently added platforms in your project.
+Click on this button:
 
-## Ionic (uses package.json)
-### [Clean and install](https://www.raymondcamden.com/2015/04/20/ionic-adds-a-new-state-feature/)
-`ionic state reset`
-This will remove everything then bring back what you have specified in the package.json file.
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
-### [Store current state](https://www.raymondcamden.com/2015/04/20/ionic-adds-a-new-state-feature/)
-`ionic state save`
-To store the current platforms and plugins to the package.json
+Or, deploy the app by hand:
 
-### [Restore current state](https://www.raymondcamden.com/2015/04/20/ionic-adds-a-new-state-feature/)
-`ionic state restore`
-This will add in the appropriate plugins and platforms from the package.json
+```
+git clone https://github.com/rt-heroku/resort-activities.git
+cd resort-activities
+heroku create 
+heroku addons:create herokuconnect:demo
+git push heroku master
+```
+
+Now Launch https://dashboard.heroku.com/ and locate your newly created app.
+ 
+Click on Heroku Connect under Add-Ons
