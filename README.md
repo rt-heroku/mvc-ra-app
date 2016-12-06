@@ -1,7 +1,7 @@
-HC - Services
-=============
+HC - Resort Activities Mobile App
+=================================
 
-Services builder for Heroku connect.
+Client app that uses Heroku connect.
 
 
 Setup
@@ -14,12 +14,13 @@ Click on this button:
 Or, deploy the app by hand:
 
 ```
-git clone https://github.com/rt-heroku/resort-activities.git
-cd resort-activities
+git clone https://github.com/rt-heroku/mvc-ra-app.git
+cd mvc-ra-app
 heroku create 
-heroku addons:create herokuconnect:demo
 git push heroku master
+heroku open
 ```
+
 
 Now Launch https://dashboard.heroku.com/ and locate your newly created app.
  
