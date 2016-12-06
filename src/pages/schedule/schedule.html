@@ -1,0 +1,175 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Schedule</ion-title>
+  </ion-navbar>
+<!--<ion-toolbar no-border-top>
+    <ion-searchbar color="primary"
+                   [(ngModel)]="queryText"
+                   (ionInput)="ionViewDidLoad()"
+                   placeholder="Search">
+    </ion-searchbar>
+  </ion-toolbar>-->
+</ion-header>
+
+
+<ion-content class="schedule-content">
+ <!--<ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>-->
+  <ion-segment class="schedule-segment" [(ngModel)]="segment" (ionChange)="onSegmentChanged($event)">
+    <ion-segment-button value="mine" (ionSelect)="onSegmentSelected($event)">
+      My Schedule
+    </ion-segment-button>
+    <ion-segment-button value="today" (ionSelect)="onSegmentSelected($event)">
+      Today
+    </ion-segment-button>
+    <ion-segment-button value="upcoming" (ionSelect)="onSegmentSelected($event)">
+      Upcoming
+    </ion-segment-button>
+  </ion-segment>
+
+  <div [ngSwitch]="segment">
+    <div *ngSwitchCase="'today'">
+
+      <ion-list class="schedule-list">
+        <ion-item class="schedule-item" *ngFor="let item of schedule.today" (click)="goToDetail(item)">
+          <ion-row>
+            <ion-col width-20 class="schedule-date">
+              <!--
+              <h2 class="schedule-day">{{item.date.day}}</h2>
+              <h3 class="schedule-month">{{item.date.month_name}}</h3>
+              -->
+              <h2 class="schedule-only-time">{{item.date.time}}</h2>
+              <h2 class="schedule-only-time">{{item.date.ampm}}</h2>
+            </ion-col>
+            <ion-col width-80 class="schedule-data">
+              <div class="data-item">
+                <div class="item-content">
+                  <ion-row>
+                    <ion-col width-100> 
+                      <h2 class="item-title one-line">{{item.subject}}</h2>
+                      <div class="item-description">
+                        <p class="description-text">{{item.short_description}}</p>
+                      </div>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row>
+                    <ion-col width-50>
+                      <div class="item-description">
+                        <p class="description-text">{{item.location}}</p>
+                      </div>
+                    </ion-col>
+                    <ion-col width-30>
+                      <div class="item-description">
+                        <p class="description-text">{{item.age}}</p>
+                      </div>
+                    </ion-col>
+                    <ion-col width-20>
+                      <div class="item-description">
+                        <p class="description-text">{{item.cost}}</p>
+                      </div>
+                    </ion-col>
+                  </ion-row>
+                </div>
+                <!--<ion-icon class="item-icon" name="arrow-forward"></ion-icon>-->
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div *ngSwitchCase="'upcoming'">
+      <ion-list class="schedule-list">
+        <ion-item class="schedule-item" *ngFor="let item of schedule.upcoming"  (click)="goToDetail(item)">
+          <ion-row>
+            <ion-col width-20 class="schedule-date">
+              <h2 class="schedule-day">{{item.date.day}}</h2>
+              <h3 class="schedule-month">{{item.date.month_name}}</h3>
+              <h4 class="schedule-time">{{item.date.time}}</h4>
+            </ion-col>
+            <ion-col width-80 class="schedule-data">
+              <div class="data-item">
+                <div class="item-content">
+                  <ion-row>
+                    <ion-col width-100> 
+                      <h2 class="item-title one-line">{{item.subject}}</h2>
+                      <div class="item-description">
+                        <p class="description-text">{{item.short_description}}</p>
+                      </div>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row>
+                    <ion-col width-50>
+                      <div class="item-description">
+                        <p class="description-text">{{item.location}}</p>
+                      </div>
+                    </ion-col>
+                    <ion-col width-30>
+                      <div class="item-description">
+                        <p class="description-text">{{item.age}}</p>
+                      </div>
+                    </ion-col>
+                    <ion-col width-20>
+                      <div class="item-description">
+                        <p class="description-text">{{item.cost}}</p>
+                      </div>
+                    </ion-col>
+                  </ion-row>
+                </div>
+                <!--<ion-icon class="item-icon" name="arrow-forward"></ion-icon>-->
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div *ngSwitchCase="'mine'">
+      <ion-list class="schedule-list">
+        <ion-item class="schedule-item" *ngFor="let item of schedule.mine" (click)="goToDetail(item)">
+          <ion-row>
+            <ion-col width-20 class="schedule-date">
+              <h2 class="schedule-day">{{item.date.day}}</h2>
+              <h3 class="schedule-month">{{item.date.month_name}}</h3>
+              <h4 class="schedule-time">{{item.date.time}}</h4>
+            </ion-col>
+            <ion-col width-80 class="schedule-data">
+              <div class="data-item">
+                <div class="item-content">
+                  <ion-row>
+                    <ion-col width-100> 
+                      <h2 class="item-title one-line">{{item.subject}}</h2>
+                      <div class="item-description">
+                        <p class="description-text">{{item.short_description}}</p>
+                      </div>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row>
+                    <ion-col width-50>
+                      <div class="item-description">
+                        <p class="description-text">{{item.location}}</p>
+                      </div>
+                    </ion-col>
+                    <ion-col width-30>
+                      <div class="item-description">
+                        <p class="description-text">{{item.age}}</p>
+                      </div>
+                    </ion-col>
+                    <ion-col width-20>
+                      <div class="item-description">
+                        <p class="description-text">{{item.cost}}</p>
+                      </div>
+                    </ion-col>
+                  </ion-row>
+                </div>
+                <!--<ion-icon class="item-icon" name="arrow-forward"></ion-icon>-->
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-item>
+      </ion-list>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,39 @@
+{
+    "banner_image": "./assets/images/mainmenu/300x600banner.jpg",
+    "banner_title": "Main Menu",
+    "apps": [
+        {
+            "title": "My Trips",
+            "icon": "stats",
+            "page": "trips"
+        },{
+            "title": "My Schedule",
+            "icon": "clock-outline",
+            "page": "schedule"
+        },{
+            "title": "Resort Activities",
+            "icon": "calendar-outline",
+            "page": "calendar"
+        },{
+            "title": "Friends",
+            "icon": "people",
+            "page": "friends"
+        },{
+            "title": "Help",
+            "icon": "help",
+            "page": "help"
+        },{
+            "title": "Settings",
+            "icon": "settings",
+            "page": "settings"
+        },{
+            "title": "Settings",
+            "icon": "settings",
+            "page": "settings"
+        },{
+            "title": "Logout",
+            "icon": "exit",
+            "page": "exit"
+        }
+    ]
+}
